@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deploymnet
+metadata:
+  name: myloginapp-deploy
+  labels:
+    app: myloginapp
+spec:
+  replicas: 2
+  selector:
+      matchLabels:
+         app: myloginapp
+  template:
+     metadata:
+       labels:
+         app: myloginapp
+     spec:
+       containers:
+       - name: myloginapp-container
+         image: akhil182/myjavaloginapp:1
+         ports:
+         - containerPort: 8080       
+
